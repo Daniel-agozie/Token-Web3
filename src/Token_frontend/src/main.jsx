@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css'
 import App from './App';
+import ContentProvider from './Context/ContextProvider';
 import {AuthClient} from "@dfinity/auth-client"
 
 const init = async () => {
@@ -23,7 +24,9 @@ const init = async () => {
 async function handleAuthenticated(authClient) {
   ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
+      <ContentProvider>
       <App />
+      </ContentProvider>
     </React.StrictMode>,
   );
 }
